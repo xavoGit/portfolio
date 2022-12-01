@@ -25,6 +25,12 @@ pipeline {
           sh "mvn clean install"
         }
       }
+	}	
+    stage('Trigger Common') {
+      steps{
+	    echo "triggering portfolio common job"
+	    build job: 'common'  
+      }
 	}
   }
 }
